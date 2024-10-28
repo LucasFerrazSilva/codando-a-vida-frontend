@@ -1,0 +1,3 @@
+<ul>
+    <li *ngFor="let post of posts"><a [routerLink]="'/post/' + post.path">{{post.title}}</a></li>
+</ul>

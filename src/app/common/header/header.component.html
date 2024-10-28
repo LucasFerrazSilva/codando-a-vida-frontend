@@ -1,0 +1,18 @@
+<nav>
+    <ul>
+        <li>
+            <a routerLink="/"><h1>Codando a Vida</h1></a>            
+        </li>
+        <li *ngFor="let category of categories">
+            <a [routerLink]="'/category/' + category.name">{{category.name}}</a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <a routerLink="/register">Registrar</a>
+        </li>
+        <li>
+            <a routerLink="/login">Login</a>
+        </li>
+    </ul>
+</nav>
