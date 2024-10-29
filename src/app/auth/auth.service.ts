@@ -6,6 +6,7 @@ import { Token } from './models/token.interface';
 import jwt_decode from 'jwt-decode';
 import { LoggedUser } from './models/logged-user.interface';
 import { BehaviorSubject } from 'rxjs';
+import { RegisterDTO } from './models/register-dto.interface';
 
 const BACKEND_URL = environment.BACKEND_URL;
 const TOKEN_KEY = 'token';
@@ -26,6 +27,10 @@ export class AuthService {
 
   login(login: Login) {
     return this.http.post<Token>(`${BACKEND_URL}/login`, login);
+  }
+
+  register(registerDTO: RegisterDTO) {
+    return this.http.post(`${BACKEND_URL}/register`, registerDTO);
   }
 
   logout() {

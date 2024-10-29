@@ -1,1 +1,16 @@
-<p>register works!</p>
+<h2>Registrar</h2>
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <label for="email">E-mail</label>
+    <input id="email" type="email" formControlName="email" placeholder="Informe seu e-mail" required/>
+
+    <label for="name">Nome</label>
+    <input id="name" formControlName="name" placeholder="Informe seu nome" required/>
+
+    <label for="password">Senha</label>
+    <input id="password" type="password" formControlName="password" placeholder="Informe sua senha" required />
+
+    <label for="confirmPassword">Confirmar a senha</label>
+    <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Confirme a sua senha" required />
+
+    <button type="submit" [disabled]="form.invalid">Registrar</button>
+</form>

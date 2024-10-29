@@ -6,13 +6,16 @@
         <li *ngFor="let category of categories">
             <a [routerLink]="'/category/' + category.name">{{category.name}}</a>
         </li>
+        <li *ngIf="user?.role == 'ROLE_ADMIN'">
+            <a routerLink="/category-form">Adicionar</a>
+        </li>
     </ul>
 
 
-    <ul *ngIf="(loggedUser$ | async) as user; else other">
+    <ul *ngIf="user; else other">
         <li>{{user.name}}</li>
         <li>
-            <a (click)="logout()">Sair</a>
+            <a routerLink="" (click)="logout()">Sair</a>
         </li>
     </ul>
 

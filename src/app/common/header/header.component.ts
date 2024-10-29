@@ -18,6 +18,7 @@ export class HeaderComponent {
 
   categories!: Category[];
   loggedUser$!: Observable<LoggedUser | null>;
+  user: LoggedUser | null = null;
 
   constructor(
     private categoryService: CategoryService,
@@ -30,7 +31,10 @@ export class HeaderComponent {
       error: err => console.log(err)
     });
 
-    this.loggedUser$ = this.authService.loggedUserSubject.asObservable();
+    this.authService.loggedUserSubject.subscribe({
+      next: resp => this.user = resp,
+      error: err => console.log(err)
+    });
   }
 
   logout() {

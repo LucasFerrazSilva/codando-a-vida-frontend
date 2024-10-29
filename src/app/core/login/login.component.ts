@@ -35,7 +35,7 @@ export class LoginComponent {
         this.authService.setToken(resp);
         this.router.navigate(['']);
       },
-      error: err => alert(err)
+      error: err => console.log(err)
     });
   }
 
