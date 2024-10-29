@@ -14,6 +14,7 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'category/:category', component: CategoryComponent },
     { path: 'category-form', component: CategoryFormComponent, canActivate: [authGuard], data: { role: 'ROLE_ADMIN' } },
+    { path: 'category-form/:id', component: CategoryFormComponent, canActivate: [authGuard], data: { role: 'ROLE_ADMIN' } },
     { path: 'post-form', component: PostFormComponent, canActivate: [authGuard], data: { role: 'ROLE_ADMIN' } },
     { path: 'post/:post', component: PostComponent },
 ];

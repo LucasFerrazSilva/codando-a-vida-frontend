@@ -1,4 +1,12 @@
-<p>{{categoryPath}}</p>
-<ul>
+<h2 *ngIf="category">{{category.name}}</h2>
+<div class="row">
+    <button (click)="edit()">Editar</button>
+    <button (click)="delete()">Excluir</button>
+    <button routerLink="/post-form">Adicionar Post</button>
+</div>
+<ul *ngIf="posts && posts.length; else emptyPosts">
     <li *ngFor="let post of posts"><a [routerLink]="'/post/' + post.path">{{post.title}}</a></li>
 </ul>
+<ng-template #emptyPosts>
+    <p>Nenhum post cadastrado para essa categoria.</p>
+</ng-template>
