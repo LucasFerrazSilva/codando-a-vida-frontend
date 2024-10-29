@@ -43,6 +43,10 @@ export class AuthService {
     this.loggedUserSubject.next(this.getLoggedUser());
   }
 
+  hasToken() {
+    return sessionStorage.getItem(TOKEN_KEY) != null;
+  }
+
   getLoggedUser() {
     const token = this.getToken()
 
