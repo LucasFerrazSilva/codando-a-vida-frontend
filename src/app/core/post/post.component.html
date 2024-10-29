@@ -1,2 +1,7 @@
-<h2>{{post?.title}}</h2>
-<p>{{post?.body}}</p>
+<h2 *ngIf="post">{{post.title}}</h2>
+<p *ngIf="post">{{ post.categoryDTO.name }}</p>
+<div *ngIf="isAdmin" class="row">
+    <button (click)="edit()">Editar</button>
+    <button (click)="delete()">Excluir</button>
+</div>
+<p *ngIf="post">{{post.body}}</p>

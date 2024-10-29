@@ -5,5 +5,5 @@ export interface Post {
     path: string;
     title: string;
     body: string;
-    category: Category;
+    categoryDTO: Category;
 }

@@ -1,5 +1,5 @@
 <h2 *ngIf="category">{{category.name}}</h2>
-<div class="row">
+<div *ngIf="isAdmin" class="row">
     <button (click)="edit()">Editar</button>
     <button (click)="delete()">Excluir</button>
     <button routerLink="/post-form">Adicionar Post</button>

@@ -1,1 +1,19 @@
-<p>post-form works!</p>
+<h2>{{ id ? 'Editar' : 'Novo' }} Post</h2>
+<form *ngIf="form" [formGroup]="form" (ngSubmit)="submit()">
+    <label for="path">Path</label>
+    <input id="path" formControlName="path" placeholder="Informe o path do post" required/>
+    
+    <label for="title">Título</label>
+    <input id="title" formControlName="title" placeholder="Informe o titulo do post" required/>
+    
+    <label for="body">Corpo</label>
+    <input id="body" formControlName="body" placeholder="Informe o corpo do post" required/>
+
+    <label for="category">Categoria</label>
+    <select id="category" formControlName="category">
+        <option [value]="null" disabled>Selecione uma opção</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+    </select>
+
+    <button type="submit" [disabled]="form.invalid">Salvar</button>
+</form>

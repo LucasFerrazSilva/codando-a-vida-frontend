@@ -47,6 +47,11 @@ export class AuthService {
     return sessionStorage.getItem(TOKEN_KEY) != null;
   }
 
+  isAdmin(): boolean {
+    const user = this.getLoggedUser();
+    return user != null && user.role == 'ROLE_ADMIN';
+  }
+
   getLoggedUser() {
     const token = this.getToken()
 

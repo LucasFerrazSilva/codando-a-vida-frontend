@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule, NgFor } from '@angular/common';
 import { Category } from './model/category.interface';
 import { CategoryService } from './category.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-category',
@@ -19,11 +20,14 @@ export class CategoryComponent {
   category!: Category;
   posts!: Post[];
 
+  isAdmin = false;
+
   constructor(
     private service: CategoryService,
     private postService: PostService,
     private route: ActivatedRoute,
     private router: Router,
+    authService: AuthService
   ) {
     this.route.paramMap.subscribe(params => {
       this.categoryPath = params.get('category');
@@ -37,6 +41,8 @@ export class CategoryComponent {
         next: resp => this.posts = resp,
         error: err => console.log(err)
       });
+
+      this.isAdmin = authService.isAdmin();
     });
   }
 

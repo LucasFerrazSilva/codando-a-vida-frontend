@@ -16,5 +16,6 @@ export const routes: Routes = [
     { path: 'category-form', component: CategoryFormComponent, canActivate: [authGuard], data: { role: 'ROLE_ADMIN' } },
     { path: 'category-form/:id', component: CategoryFormComponent, canActivate: [authGuard], data: { role: 'ROLE_ADMIN' } },
     { path: 'post-form', component: PostFormComponent, canActivate: [authGuard], data: { role: 'ROLE_ADMIN' } },
+    { path: 'post-form/:id', component: PostFormComponent, canActivate: [authGuard], data: { role: 'ROLE_ADMIN' } },
     { path: 'post/:post', component: PostComponent },
 ];

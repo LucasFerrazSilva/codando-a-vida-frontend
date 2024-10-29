@@ -41,7 +41,6 @@ export class CategoryFormComponent {
         name: ['', [Validators.required]],
       });
     }
-
   }
 
   submit() {
