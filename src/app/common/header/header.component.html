@@ -7,12 +7,23 @@
             <a [routerLink]="'/category/' + category.name">{{category.name}}</a>
         </li>
     </ul>
-    <ul>
+
+
+    <ul *ngIf="(loggedUser$ | async) as user; else other">
+        <li>{{user.name}}</li>
         <li>
-            <a routerLink="/register">Registrar</a>
-        </li>
-        <li>
-            <a routerLink="/login">Login</a>
+            <a (click)="logout()">Sair</a>
         </li>
     </ul>
+
+    <ng-template #other>
+        <ul>
+            <li>
+                <a routerLink="/register">Registrar</a>
+            </li>
+            <li>
+                <a routerLink="/login">Login</a>
+            </li>
+        </ul>
+    </ng-template>
 </nav>
