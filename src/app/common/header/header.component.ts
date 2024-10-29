@@ -26,13 +26,19 @@ export class HeaderComponent {
   ) {}
 
   ngOnInit() {
-    this.categoryService.list().subscribe({
-      next: resp => this.categories = resp,
-      error: err => console.log(err)
-    });
+    this.loadCategories();
+
+    this.categoryService.categoriesChangedSubject.subscribe({ next: () => this.loadCategories() });
 
     this.authService.loggedUserSubject.subscribe({
       next: resp => this.user = resp,
+      error: err => console.log(err)
+    });
+  }
+
+  loadCategories() {
+    this.categoryService.list().subscribe({
+      next: resp => this.categories = resp,
       error: err => console.log(err)
     });
   }
