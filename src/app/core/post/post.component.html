@@ -4,4 +4,4 @@
     <button (click)="edit()">Editar</button>
     <button (click)="delete()">Excluir</button>
 </div>
-<p *ngIf="post">{{post.body}}</p>
+<p *ngIf="post" [innerHTML]="sanitizer.bypassSecurityTrustHtml(post.body)"></p>

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from './model/post.interface';
 import { AuthService } from '../../auth/auth.service';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-post',
@@ -22,7 +23,8 @@ export class PostComponent {
     private postService: PostService,
     private route: ActivatedRoute,
     authService: AuthService,
-    private router: Router
+    private router: Router,
+    public sanitizer: DomSanitizer
   ) {
     this.route.paramMap.subscribe(params => {
       this.postService.findByPath(params.get('post')).subscribe({

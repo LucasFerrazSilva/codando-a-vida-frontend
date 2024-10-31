@@ -6,14 +6,16 @@
     <label for="title">Título</label>
     <input id="title" formControlName="title" placeholder="Informe o titulo do post" required/>
     
-    <label for="body">Corpo</label>
-    <input id="body" formControlName="body" placeholder="Informe o corpo do post" required/>
-
     <label for="category">Categoria</label>
     <select id="category" formControlName="category">
         <option [value]="null" disabled>Selecione uma opção</option>
         <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
     </select>
+
+    <div class="NgxEditor__Wrapper">
+        <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"> </ngx-editor-menu>
+        <ngx-editor [editor]="editor" formControlName="body"></ngx-editor>
+    </div>
 
     <button type="submit" [disabled]="form.invalid">Salvar</button>
 </form>
