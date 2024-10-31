@@ -8,7 +8,7 @@ import { NewPost } from '../model/new-post.interface';
 import { UpdatePost } from '../model/update-post.interface';
 import { CategoryService } from '../../category/category.service';
 import { Category } from '../../category/model/category.interface';
-import { Editor, NgxEditorModule, Toolbar } from 'ngx-editor';
+import { Editor, NgxEditorModule, toHTML, Toolbar } from 'ngx-editor';
 
 
 @Component({
@@ -85,6 +85,7 @@ export class PostFormComponent {
 
   create() {
     const dto = this.form.value as NewPost;
+    dto.body = toHTML(this.form.value['body']);
     dto.category = {
       id: this.form.value['category']
     } as Category;
@@ -99,6 +100,7 @@ export class PostFormComponent {
 
   update() {
     const dto = this.form.value as UpdatePost;
+    dto.body = toHTML(this.form.value['body']);
     dto.category = {
       id: this.form.value['category']
     } as Category;
