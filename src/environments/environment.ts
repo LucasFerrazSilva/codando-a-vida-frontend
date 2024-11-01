@@ -1,3 +1,3 @@
 export const environment = {
-    BACKEND_URL: 'http://18.228.232.77:8080'
+    BACKEND_URL: 'https://codando-a-vida-backend-main.onrender.com'
 };
