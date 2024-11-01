@@ -100,7 +100,6 @@ export class PostFormComponent {
 
   update() {
     const dto = this.form.value as UpdatePost;
-    dto.body = toHTML(this.form.value['body']);
     dto.category = {
       id: this.form.value['category']
     } as Category;
