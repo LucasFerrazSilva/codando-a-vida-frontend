@@ -105,7 +105,8 @@ export class PostFormComponent {
     } as Category;
     this.service.update(this.id, dto).subscribe({
       next: resp => {
-        this.router.navigate(['']);
+        // this.router.navigate(['']);
+        alert('Salvo com sucesso');
       },
       error: err => console.log(err)
     });
