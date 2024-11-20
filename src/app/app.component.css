@@ -1,4 +1,9 @@
 .content {
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
+    min-width: 600px;
+
+    img {
+        max-width: 100%;
+    }
 }
